@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<! 删除功能>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除学生信息</title>
+    <link rel="shortcut icon" href="/static/img/bg11.jpg">
+</head>
+<body>
+<h1 style="color: #aa0d91">请输入你要想要删除的学生学号</h1>
+<form method="post" action="{% url 'manager:delete' %}">
+    {% csrf_token %}
+    <li style="color: #0000ee"><strong>学生学号：<br><input style="color: #0000ee" type="text" name="s_no" placeholder={{ s_no }}><br></strong></li>
+    <strong><button type="submit" class="btn btn-primary float-right"><strong>删除</strong></button></strong>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+</form>
+{% if msg %}
+    {{ msg }}
+{% endif %}
+</body>
+</html>

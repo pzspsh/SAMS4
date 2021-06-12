@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!添加功能（添加学生信息、宿管员信息。。。）>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生公寓信息</title>
+    <link rel="shortcut icon" href="/static/img/bg6.jpg">
+</head>
+<body>
+<h1 style="color: #00FF00"><strong>记录宿舍水电信息</strong></h1>
+<form method="post" action="{% url 'manager:addSdb' %}">
+    {% csrf_token %}
+    <li style="color: red"><strong>楼号：<br><input style="color: red" type="text" name="lou_no"/></strong><br></li>
+    <li style="color: #2C009F"><strong>房间号：<br><input style="color: #2C009F" type="text" name="room_no"/></strong><br>
+    </li>
+    {% if msg %}
+        <h5>{{ msg }}</h5><br>
+    {% endif %}
+
+    <li style="color: #5c2699"><strong>月份：<br><input style="color: #5c2699" type="text"
+                                                       name="month_field"/></strong><br></li>
+    <li style="color: #1bcc34"><strong>电量：<br><input style="color: #1bcc34" type="text"
+                                                       name="elect"/></strong><br></li>
+    <li style="color: #902b2b"><strong>电费：<br><input style="color: #902b2b" type="text" name="electric"/></strong><br></li>
+    <li style="color: #1b1b1b"><strong>水量：<br><input style="color: #1b1b1b" type="text" name="water"/></strong><br>
+    </li>
+    <li style="color: blue"><strong>水费：<br><input style="color: blue" type="text" name="waterc"/></strong><br></li>
+    <f><button type="submit" class="btn btn-primary float-right"><strong>保存</strong></button></f>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+    {% if error %}
+        <h5>{{ error }}</h5><br>
+    {% endif %}
+    {% if sucess %}
+        <h5>{{ sucess }}</h5><br>
+    {% endif %}
+</form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!查询功能（查询学生信息、宿管员信息、违规记录。。。>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <title>查看学生信息</title>
+    <link rel="shortcut icon" href="/static/img/bg11.jpg">
+</head>
+<body>
+<h1 style="color: #0000ee"><strong>根据学号来查询学生基本信息</strong></h1>
+{% if not msg %}
+    {#    判断是否由msg这个参数，或者判断其值，没有的话则执行这段代码#}
+    <form method="post" action="{% url 'manager:select' %}">
+        {% csrf_token %}
+        <li style="color: blue"><strong>学生学号：<br><input style="color: blue" type="text" name="s_no"
+                                                        placeholder={{ id }}></strong><br></li>
+        <button type="submit" class="btn btn-primary float-right"><strong>查询</strong></button>
+        <a href="{% url 'manager:index' %}" class="text-success">
+            <ins><strong>退出</strong></ins>
+        </a>
+    </form>
+{% else %}
+    <strong>
+        <ul>
+            <li style="color: red">学号：<br> {{ s_no }}</li>
+            <li style="color: blue">姓名：<br> {{ s_name }}</li>
+            <li style="color: #902b2b">性别：<br> {{ s_sex }}</li>
+            <li style="color: #1bcc34">年龄：<br> {{ s_age }}</li>
+            <li style="color: #00a0e9">电话： <br>{{ s_tele }}</li>
+            <li style="color: #2b2f31">系院：<br> {{ s_college }}</li>
+            <li style="color: #5c2699;">管理员： <br>{{ m_no }}</li>
+        </ul>
+    </strong>
+    <hr>
+    <strong>
+        <ul>
+            {% for k, v in wreason_data.items %}
+                <li style="color: red">{{ k }}: {{ v }}</li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for k,v in bed_no.items %}
+                <li style="color: blue">{{ k }}:{{ v }}</li>
+            {% endfor %}
+        </ul>
+    </strong>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/holder.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+{% endif %}
+</body>
+</html>

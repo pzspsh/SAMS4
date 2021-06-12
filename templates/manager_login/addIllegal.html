@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!添加功能（添加学生信息、宿管员信息。。。）>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生公寓信息</title>
+    <link rel="shortcut icon" href="/static/img/bg9.jpeg">
+</head>
+<body>
+<h1 style="color: #aa0d91"><strong>记录违规信息</strong></h1>
+<form method="post" action="{% url 'manager:addIllegal' %}">
+    {% csrf_token %}
+    <strong style="color: red">学生学号：<br><input style="color: red" type="text" name="s_no"/></strong><br>
+    <strong style="color: #2C009F">楼号：<br><input style="color: #2C009F" type="text" name="lou_no"/></strong><br>
+    {% if msg %}
+        <h5>{{ msg }}</h5><br>
+    {% endif %}
+
+    <strong style="color: #5c2699">房间号：<br><input style="color: #5c2699" type="text" name="room_no"/></strong><br>
+    <strong style="color: #1bcc34">违规时间：<br><input style="color: #1bcc34" type="text" name="stamp_time"/></strong><br>
+    <strong style="color: #902b2b">违规事件：<br><input style="color: #902b2b" type="text" name="wreason"/></strong><br>
+    <f><button type="submit" class="btn btn-primary float-right"><strong>保存</strong></button></f>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+    {% if error %}
+        <h5>{{ error }}</h5><br>
+    {% endif %}
+    {% if sucess %}
+        <h5>{{ sucess }}</h5><br>
+    {% endif %}
+</form>
+</body>
+</html>

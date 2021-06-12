@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!添加功能（添加学生信息、宿管员信息。。。）>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生公寓信息</title>
+    <link rel="shortcut icon" href="/static/img/bg4.jpg">
+</head>
+<body>
+<h1 style="color: red"><strong>请在下列信息栏中填入要添加的信息</strong></h1>
+<form method="post" action="{% url 'manager:addFloor' %}">
+    {% csrf_token %}
+    <li style="color: #5c2699"><strong>楼号：<br><input style="color: #5c2699" type="text" name="lou_no"/></strong><br>
+    </li>
+    {% if msg %}
+        <h5>{{ msg }}</h5><br>
+    {% endif %}
+    <li style="color: #1bcc34"><strong>房间数：<br><input style="color: #1bcc34" type="text" name="rooms"/></strong><br>
+    </li>
+    <li style="color: #902b2b"><strong>管理员编号：<br><input style="color: #902b2b" type="text" name="m_no"/></strong><br>
+    </li>
+    <f><button type="submit" class="btn btn-primary float-right"><strong>保存</strong></button></f>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+
+    {% if error %}
+        <h5>{{ error }}</h5><br>
+    {% endif %}
+    {% if sucess %}
+        <h5>{{ sucess }}</h5><br>
+    {% endif %}
+</form>
+</body>
+</html>

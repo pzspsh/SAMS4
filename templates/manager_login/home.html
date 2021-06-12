@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>用户</th>
+        <th>类型</th>
+        <th>标题</th>
+        <th>标签</th>
+        <th>内容</th>
+        <th>文章图片</th>
+        <th>发表时间</th>
+        <th>点击量</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in content %}
+        <tr>
+            <td>{{ user.user_id }}</td>
+            <td>{{ user.type_id }}</td>
+            <td>{{ user.title }}</td>
+            <td>{{ user.picture }}</td>
+            <td>{{ user.content }}</td>
+            <td>{{ user.image }}</td>
+            <td>{{ user.publish_time }}</td>
+            <td>{{ user.clicked }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

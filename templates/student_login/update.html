@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!# 更改信息功能（更改学生信息、违规信息、宿管员信息）>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title style="color: #aa0d91">修改学生密码</title>
+</head>
+<body>
+<strong>
+    <h1 style="color: red">修改密码</h1>
+</strong>
+<form method="post" action="{% url 'student:update' %}">
+    {% csrf_token %}
+    <li style="color: #2b542c"><strong>昵称：<br><input type="text" name="stuname" placeholder={{ stuname }}></strong></li>
+    <br>
+    <li style="color: #00FFFF"><strong>账号：<br><input type="text" name="stuid" placeholder={{ stuid }}></strong></li>
+    <br>
+    <li style="color: #00FF00"><strong>性别：<br><input type="text" name="gender" placeholder={{ gender }}></strong></li>
+    <br>
+    <li style="color: red"><strong>密码：<br><input type="text" name="password" placeholder={{ password }}></strong></li>
+    <br>
+    <li style="color: #0d69b3"><strong>电话：<br><input type="text" name="phone" placeholder={{ phone }}></strong></li>
+    <br>
+    <li style="color: #aa0d91"><strong>地址邮件：<br><input type="text" name="email" placeholder={{ email }}></strong></li>
+    <br>
+    <button type="submit" class="btn btn-primary float-right"><strong>保存</strong></button>
+    <a href="{% url 'manager:index' %}" class="text-success">
+        <ins><strong>退出</strong></ins>
+    </a>
+</form>
+{% if msg %}
+    {{ msg }}
+{% endif %}
+</body>
+</html>

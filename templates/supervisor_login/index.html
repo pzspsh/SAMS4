@@ -1,0 +1,81 @@
+<!-- SUM START 统计 -->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}
+        <title>宿管员系统</title>
+    {% endblock title %}
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css.map">
+    <link rel="shortcut icon" href="/static/img/bg4.jpg">
+    {% block link %}
+    {% endblock %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--head-->
+<!--nav-->
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a style="color: #0000ee" href="https://www.tute.edu.cn/index/yw/tt.htm"><strong>热闻 ·头条</strong></a></li>
+            <li>
+                <a style="color: #00FF00"
+                   href="https://card.weibo.com/article/m/show/id/2309404490794760273994?_wb_client_=1&object_id=1022%3A2309404490794760273994&extparam=lmid--4490794763449740&luicode=10000011&lfid=1076032440177801"><strong>微博头条</strong></a>
+            </li>
+            <li><a style="color: #aa0d91 " href="https://zb.tute.edu.cn/zszc1/zszctt.htm"><strong>天职师大·本科招生信息网</strong></a></li>
+            <li><a style="color: red" href="https://www.tute.edu.cn/"><strong>官网</strong></a></li>
+            <li><a style="color: #0d69b3" href="https://jwc.tute.edu.cn/"><strong>教务处</strong></a></li>
+            <li>
+                <a style="color: #0000ee"
+                   href="https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6/5721931?fr=aladdin"><strong>百度百科</strong></a>
+            </li>
+            <li><a style="color: #00FFFF"
+                   href="https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E9%9D%92%E5%B9%B4%E5%BF%97%E6%84%BF%E8%80%85%E5%8D%8F%E4%BC%9A/20180150?fr=aladdin"><strong>公益</strong></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a style="color: red" href="{% url 'supervisor:login' %}"><strong>登录</strong></a></li>
+            <li><a style="color: blue" href="{% url 'supervisor:logout' %}"><strong>退出</strong></a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="col-sm-2">
+        <div class="list-group side-bar">
+            <a style="color: white" class="list-group-item active" href="#"><strong>请选择您要执行的操作：</strong></a>
+            <a style="color: #000000" class="list-group-item" href="{% url 'supervisor:addillegal' %}"><strong>记录学生违规信息</strong></a>
+            <a style="color: #aa0d91" class="list-group-item" href="{% url 'supervisor:addsdb' %}"><strong>记录宿舍水电信息</strong></a>
+        </div>
+    </div>
+     <div class="col-sm-2">
+        <div class="list-group side-bar">
+            <a style="color: white" class="list-group-item active" href="#"><strong>请选择您要执行的操作：</strong></a>
+            <a style="color: #2b542c" class="list-group-item" href="{% url 'supervisor:ssws' %}"><strong>记录宿舍卫生信息</strong></a>
+            <a style="color: blue" class="list-group-item" href="{% url 'supervisor:select' %}"><strong>查询学生信息</strong></a>
+        </div>
+    </div>
+     <div class="col-sm-2">
+        <div class="list-group side-bar">
+            <a style="color: white" class="list-group-item active" href="#"><strong>请选择您要执行的操作：</strong></a>
+            <a style="color: #00FF00" class="list-group-item" href="{% url 'supervisor:lx' %}"><strong>记录学生离校</strong></a>
+            <a style="color: #00FFFF" class="list-group-item" href="{% url 'supervisor:addsthfix' %}"><strong>报修宿舍</strong></a>
+        </div>
+    </div>
+     <div class="col-sm-2">
+        <div class="list-group side-bar">
+            <a style="color: white" class="list-group-item active" href="#"><strong>请选择您要执行的操作：</strong></a>
+            <a style="color: red" class="list-group-item" href="{% url 'supervisor:delete' %}"><strong>删除信息</strong></a>
+            <a style="color: #00a0e9" class="list-group-item" href="{% url 'supervisor:update' %}"><strong>修改信息</strong></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

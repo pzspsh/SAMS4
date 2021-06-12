@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!# 更改信息功能（更改学生信息、违规信息、宿管员信息）>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+    <link rel="shortcut icon" href="/static/img/bg11.jpg">
+</head>
+<body>
+<strong><h1 style="color: red">根据学号来修改学生基本信息</h1></strong>
+<form method="post" action="{% url 'manager:update' %}">
+    {% csrf_token %}
+    <li style="color: #0000ee"><strong>学生学号：<br><input style="color: #0000ee" type="text" name="s_no" placeholder={{ s_no }}></strong><br></li>
+    <li style="color: #00FFFF"><strong>学生姓名：<br><input style="color: #00FFFF" type="text" name="s_name" placeholder={{ s_name }}></strong><br></li>
+    <li style="color: #0d69b3"><strong>学生性别：<br><input style="color: #0d69b3" type="text" name="s_sex" placeholder={{ s_sex }}></strong><br></li>
+    <li style="color: #aa0d91"><strong>学生年龄：<br><input style="color: #aa0d91" type="text" name="s_age" placeholder={{ s_age }}></strong><br></li>
+   <li style="color: red"><strong>学生电话：<br><input style="color: red" type="text" name="s_tele" placeholder={{ s_tele }}></strong><br></li>
+    <li style="color: #00FF00"><strong>学生系院：<br><input style="color: #00FF00" type="text" name="s_college" placeholder={{ s_college }}></strong><br></li>
+    <li style="color: #1d1f21"><strong>管理员编号：<br><input style="color: #1d1f21" type="text" name="m_no" placeholder={{ m_no }}></strong><br></li>
+    <strong><button type="submit" class="btn btn-primary float-right"><strong>修改</strong></button></strong>
+    <a href="{% url 'manager:index' %}" class="text-success">
+                    <ins><strong>退出</strong></ins>
+                </a>
+</form>
+   {% if msg %}
+       {{ msg }}
+   {% endif %}
+</body>
+</html>
